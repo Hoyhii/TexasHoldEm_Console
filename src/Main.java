@@ -1,7 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
         Card card = new Card("5","Pikk");
@@ -13,12 +12,19 @@ public class Main {
         System.out.println(deck.size());
         deck.listOfCards();
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Adj nevet");
-        String playerName = sc.nextLine();
-        System.out.println("Összeg");
-        int amount = sc.nextInt();
+        List<Card> cards = deck.getCards();
+
+        int amount = 3000;
+
+
+
+        InputHandler inputHandler = new InputHandler();
+        String playerName = inputHandler.setName();
+        int bet = inputHandler.makeBet();
         Player player1 = new Player(playerName,amount);
+        player1.placeBet(bet);
         System.out.println(player1.getBalance() + " " +player1.getName());
+
+
     }
 }
